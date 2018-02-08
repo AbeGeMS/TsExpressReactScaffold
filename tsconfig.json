@@ -1,0 +1,11 @@
+{
+    "files":["src/**/**.{ts,tsx}"],
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es5",
+        "jsx":"react",
+        "outDir": "debug/"
+    },
+    "exclude": [],
+    "include":[]
+}

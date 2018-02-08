@@ -1,0 +1,29 @@
+{
+  "name": "nodejsproject",
+  "version": "1.0.0",
+  "description": "nodejs project scaffold",
+  "main": "gulpfile.js",
+  "scripts": {
+    "setup": "md src;debug;test;dist;",
+    "test": "jasmine"
+  },
+  "author": "Abe Ge",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "express": "^4.15.3"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.4",
+    "@types/express": "^4.0.35",
+    "@types/jquery": "^2.0.45",
+    "@types/node": "^7.0.53",
+    "@types/react": "^15.0.25",
+    "@types/react-dom": "^15.5.0",
+    "gulp": "^3.9.1",
+    "gulp-cli": "^2.0.1",
+    "gulp-typescript": "^3.2.4",
+    "nodemon": "^1.11.0",
+    "typescript": "^2.3.3"
+  }
+}
