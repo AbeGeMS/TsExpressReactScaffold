@@ -1,11 +1,12 @@
 {
   "name": "nodejsproject",
   "version": "1.0.0",
-  "description": "nodejs project scaffold",
+  "description": "a scanfolder for a website usig typeScript as language; expressjs as server side framework;React as client side framework; Jasmine as UT engine; nodemon is debug tool; VsCode as IDE.",
   "main": "gulpfile.js",
   "scripts": {
     "setup": "md src;debug;test;dist;",
-    "test": "jasmine"
+    "test": "jasmine",
+    "nodemon": "node_modules/.bin/nodemon.cmd debug/server/app.js"
   },
   "author": "Abe Ge",
   "license": "MIT",
@@ -22,8 +23,12 @@
     "@types/react-dom": "^15.5.0",
     "gulp": "^3.9.1",
     "gulp-cli": "^2.0.1",
+    "gulp-flatten": "^0.4.0",
+    "gulp-rimraf": "^0.2.2",
     "gulp-typescript": "^3.2.4",
     "nodemon": "^1.11.0",
     "typescript": "^2.3.3"
-  }
+  },
+  "repository": "https://github.com/AbeGe/TsExpressReactScaffold.git",
+  "private": false
 }
