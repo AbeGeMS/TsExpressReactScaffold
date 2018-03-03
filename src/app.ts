@@ -1,8 +1,8 @@
 /// <reference path="../../node_modules/@types/express/index.d.ts"/>
 /// <reference path="../../node_modules/@types/bluebird/index.d.ts"/>
 
-import * as b from "bluebird";
-import * as express from "express";
+import * as b from "Bluebird";
+import * as express from "Express";
 import * as path from "path";
 
 module Abe.Server{

@@ -26,6 +26,7 @@
     "gulp-flatten": "^0.4.0",
     "gulp-rimraf": "^0.2.2",
     "gulp-typescript": "^3.2.4",
+    "less": "^3.0.1",
     "nodemon": "^1.11.0",
     "typescript": "^2.3.3"
   },
