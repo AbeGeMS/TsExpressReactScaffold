@@ -9,10 +9,26 @@ gulp.task("clean", function () {
     return gulp.src("debug/*", { read: false }).pipe(clean());
 });
 
-gulp.task("build", ["clean"], function () {
+gulp.task("build-server", function () {
     console.log("build typscript");
-    return tsProject.src()
-        .pipe(tsProject())
-        .js.pipe(flatten())
-        .pipe(gulp.dest("debug"));
+    gulp.src(["src/*.{ts,tsx}","src/router/*.{ts,tsx}"])
+    .pipe(tsProject())
+    .js.pipe(flatten())
+    .pipe(gulp.dest("debug"));
+});
+
+gulp.task("build-staticResource",function(){
+    console.log("build staticResource");
+    gulp.src('src/public/!(less|script)/*').pipe(gulp.dest("debug/public"));
+});
+
+gulp.task("build-client",function(){
+    console.log("build client react");
+    return gulp.src("src/public/script/*.{ts,tsx}")
+    .pipe(ts.createProject("tsconfig.json")())
+    .js.pipe(gulp.dest("debug/public/script"));
+});
+
+gulp.task('default',['clean'],function(){
+    return gulp.run("build-server","build-staticResource","build-client");
 });

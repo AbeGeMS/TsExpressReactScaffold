@@ -1,5 +1,5 @@
-/// <reference path="../../node_modules/@types/express/index.d.ts"/>
-/// <reference path="../../node_modules/@types/bluebird/index.d.ts"/>
+/// <reference path="../node_modules/@types/express/index.d.ts"/>
+/// <reference path="../node_modules/@types/bluebird/index.d.ts"/>
 
 import * as b from "Bluebird";
 import * as express from "Express";

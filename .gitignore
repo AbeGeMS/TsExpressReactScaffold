@@ -8,4 +8,4 @@ package-lock.json
 
 #devenv
 .vs
-.log
+*.log

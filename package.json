@@ -6,7 +6,7 @@
   "scripts": {
     "setup": "md src;debug;test;dist;",
     "test": "jasmine",
-    "nodemon": "node_modules/.bin/nodemon.cmd debug/server/app.js"
+    "nodemon": "node_modules/.bin/nodemon.cmd debug/app.js"
   },
   "author": "Abe Ge",
   "license": "MIT",
