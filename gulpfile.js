@@ -32,3 +32,7 @@ gulp.task("build-client",function(){
 gulp.task('default',['clean'],function(){
     return gulp.run("build-server","build-staticResource","build-client");
 });
+
+gulp.watch("src/**/*.{ts,tsx,less,html}",['default'],function(){
+    console.log("detect code change,start building...");
+})
