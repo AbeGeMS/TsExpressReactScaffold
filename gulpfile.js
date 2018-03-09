@@ -1,6 +1,5 @@
 var gulp = require("gulp");
 var ts = require("gulp-typescript");
-var tsProject = ts.createProject("tsconfig.json");
 var clean = require("gulp-rimraf");
 var flatten = require("gulp-flatten");
 
@@ -11,10 +10,9 @@ gulp.task("clean", function () {
 
 gulp.task("build-server", function () {
     console.log("build typscript");
-    gulp.src(["src/*.{ts,tsx}","src/router/*.{ts,tsx}"])
-    .pipe(tsProject())
-    .js.pipe(flatten())
-    .pipe(gulp.dest("debug"));
+    return gulp.src(["src/**/*.{ts,tsx}","!src/public","!src/public/**"]) // Build all ts/tsx file under src folder and exclude public
+        .pipe(ts.createProject("tsconfig.json")())
+        .pipe(gulp.dest("debug"));
 });
 
 gulp.task("build-staticResource",function(){
