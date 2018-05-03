@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "setup": "md src;debug;test;dist;",
+    "build": "node_modules/.bin/gulp",
     "test": "jasmine",
     "nodemon": "node_modules/.bin/nodemon.cmd debug/app.js",
     "forever": "node_modules/.bin/forever start -a -l forever.log -o out.log -e err.log -w --watchDirectory ./debug debug/app.js"
