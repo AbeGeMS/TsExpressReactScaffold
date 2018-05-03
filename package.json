@@ -6,13 +6,15 @@
   "scripts": {
     "setup": "md src;debug;test;dist;",
     "test": "jasmine",
-    "nodemon": "node_modules/.bin/nodemon.cmd debug/app.js"
+    "nodemon": "node_modules/.bin/nodemon.cmd debug/app.js",
+    "forever": "node_modules/.bin/forever start -a -l forever.log -o out.log -e err.log -w --watchDirectory ./debug debug/app.js"
   },
   "author": "Abe Ge",
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.5.0",
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "forever": "^0.15.3"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.4",
