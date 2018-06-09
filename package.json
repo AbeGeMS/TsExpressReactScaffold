@@ -4,7 +4,6 @@
   "description": "a scanfolder for a website usig typeScript as language; expressjs as server side framework;React as client side framework; Jasmine as UT engine; nodemon is debug tool; VsCode as IDE.",
   "main": "gulpfile.js",
   "scripts": {
-    "setup": "md src;debug;test;dist;",
     "build": "node_modules/.bin/gulp",
     "test": "jasmine",
     "nodemon": "node_modules/.bin/nodemon.cmd debug/app.js",
