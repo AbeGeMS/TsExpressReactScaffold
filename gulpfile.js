@@ -2,6 +2,8 @@ var gulp = require("gulp");
 var ts = require("gulp-typescript");
 var clean = require("gulp-rimraf");
 var flatten = require("gulp-flatten");
+var concat = require("gulp-concat");
+var uglify = require("gulp-uglify");
 
 gulp.task("clean", function () {
     console.log("Clean all files in debug folder");
@@ -22,9 +24,11 @@ gulp.task("build-staticResource", ["clean"], function () {
 
 gulp.task("build-client", ["clean"], function () {
     console.log("build client react");
-    return gulp.src("src/public/script/*.{ts,tsx}")
+    return gulp.src("src/public/script/**/*.{ts,tsx}")
         .pipe(ts.createProject("tsconfig.json")())
-        .js.pipe(gulp.dest("debug/public/script"));
+        .js.pipe(concat('client.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest("debug/public/script"));
 });
 
 gulp.task('default', ["build-server", "build-staticResource", "build-client"], function () {
