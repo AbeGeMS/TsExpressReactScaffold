@@ -9,7 +9,7 @@ describe(' jasmine test suite',()=>{
         expect(a).toBe(true);
     });
     
-    it('sample servecie test sayHi()', () => {
+    it('sample service test sayHi()', () => {
         let sayHelloService = new sample.Abe.Service.SampleService();
         let actualResult = sayHelloService.SayHi("tester");
         expect(actualResult).toBe('Hello, my name is tester');
