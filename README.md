@@ -5,20 +5,20 @@ An scaffold for Express + React using typescript
 * Install [yarn](https://yarnpkg.com/en/)
 # Initial Project
 * Develop environment: 
-    > yarn install
+    > \> yarn install
 * Production enviroment:
-    > yarn install --prod
+    > \> yarn install --prod
 # Command
 * Build 
-    > npm run build
+    > \> npm run build
 * Launch website
-    > npm run nodemon
+    > \> npm run nodemon
 * Run Unit Test
-    > npm run test
+    > \> npm run test
 * Launch in Production
-    > npm run forever
+    > \> npm run forever
 # Other
 * Add dev dependency
-    > yarn add xxxx -D
+    > \> yarn add xxxx -D
 * Remove dependency
-    > yarn remove xxxx
+    > \> yarn remove xxxx
