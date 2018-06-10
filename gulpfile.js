@@ -44,10 +44,10 @@ gulp.task('move-test-config', ['clean'], function () {
         .pipe(gulp.dest('debug/test'));
 });
 
-gulp.task('test', ['build-test', 'move-test-config']);
-
-gulp.task('default', ["build-server", "build-staticResource", "build-client", "test"], function () {
-    console.info("\x1b[32m%s\x1b[0m", "Done");
+gulp.task('default',
+    ["build-server", "build-staticResource", "build-client", "build-test", "move-test-config"],
+    function () {
+        console.info("\x1b[32m%s\x1b[0m", ">>>>>>>>>>Done>>>>>>>>");
 });
 
 gulp.watch("src/**/*.{ts,tsx,less,html}", ['default'], function () {
