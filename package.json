@@ -5,7 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "build": "node_modules/.bin/gulp",
-    "test": "jasmine",
+    "test": "node_modules/.bin/jasmine --config=debug/test/jasmine.json",
     "nodemon": "node_modules/.bin/nodemon.cmd debug/app.js",
     "forever": "node_modules/.bin/forever start -a -l forever.log -o out.log -e err.log -w --watchDirectory ./debug debug/app.js"
   },
@@ -19,6 +19,7 @@
   "devDependencies": {
     "@types/bluebird": "^3.5.4",
     "@types/express": "^4.0.35",
+    "@types/jasmine": "^2.8.8",
     "@types/jquery": "^2.0.45",
     "@types/node": "^7.0.53",
     "@types/react": "^15.0.25",
@@ -30,6 +31,7 @@
     "gulp-rimraf": "^0.2.2",
     "gulp-typescript": "^3.2.4",
     "gulp-uglify": "^3.0.0",
+    "jasmine": "^3.1.0",
     "less": "^3.0.1",
     "nodemon": "^1.11.0",
     "typescript": "^2.3.3"

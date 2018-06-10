@@ -5,8 +5,7 @@ import * as b from "Bluebird";
 export module Abe.Service {
     export class SampleService {
         public SayHi(name: string): string {
-            return `Hello, 
-            my name is ${ name }`;
+            return `Hello, my name is ${name}`;
         }
     }
 }

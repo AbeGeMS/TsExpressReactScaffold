@@ -31,8 +31,23 @@ gulp.task("build-client", ["clean"], function () {
         .pipe(gulp.dest("debug/public/script"));
 });
 
-gulp.task('default', ["build-server", "build-staticResource", "build-client"], function () {
-    console.info("\x1b[32m%s\x1b[0m","Done");
+gulp.task('build-test', ['clean'], function () {
+    console.log('run build test');
+    return gulp.src("src/test/**/*.ts")
+        .pipe(ts.createProject("tsconfig.json")())
+        .js.pipe(gulp.dest("debug/test"));
+});
+
+gulp.task('move-test-config', ['clean'], function () {
+    console.log('run move jasmine config');
+    return gulp.src('src/test/**/jasmine.json')
+        .pipe(gulp.dest('debug/test'));
+});
+
+gulp.task('test', ['build-test', 'move-test-config']);
+
+gulp.task('default', ["build-server", "build-staticResource", "build-client", "test"], function () {
+    console.info("\x1b[32m%s\x1b[0m", "Done");
 });
 
 gulp.watch("src/**/*.{ts,tsx,less,html}", ['default'], function () {
