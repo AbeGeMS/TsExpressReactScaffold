@@ -1,9 +1,11 @@
 var gulp = require("gulp");
 var ts = require("gulp-typescript");
 var clean = require("gulp-rimraf");
-var flatten = require("gulp-flatten");
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
+var webpack = require("webpack");
+var webpack_config = require("./webpack.config.js");
+var webpack_stream = require("webpack-stream");
 
 gulp.task("clean", function () {
     console.log("Clean all files in debug folder");
@@ -31,6 +33,11 @@ gulp.task("build-client", ["clean"], function () {
         .pipe(gulp.dest("debug/public/script"));
 });
 
+gulp.task("webpack", ["clean"], function () {
+    return webpack_stream(webpack_config, webpack)
+        .pipe(gulp.dest("debug/public/script"));
+});
+
 gulp.task('build-test', ['clean'], function () {
     console.log('run build test');
     return gulp.src("src/test/**/*.ts")
@@ -45,7 +52,7 @@ gulp.task('move-test-config', ['clean'], function () {
 });
 
 gulp.task('default',
-    ["build-server", "build-staticResource", "build-client", "build-test", "move-test-config"],
+    ["build-server", "build-staticResource", "webpack", "build-test", "move-test-config"],
     function () {
         console.info("\x1b[32m%s\x1b[0m", ">>>>>>>>>>Done>>>>>>>>");
 });
