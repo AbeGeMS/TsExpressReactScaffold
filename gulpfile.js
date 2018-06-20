@@ -28,9 +28,7 @@ gulp.task("build-client", ["clean"], function () {
     console.log("build client react");
     return gulp.src("src/public/script/**/*.{ts,tsx}")
         .pipe(ts.createProject("tsconfig.json")())
-        .js.pipe(concat('client.min.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest("debug/public/script"));
+        .js.pipe(gulp.dest("debug/public/script"));
 });
 
 gulp.task("webpack", ["clean"], function () {
@@ -51,12 +49,20 @@ gulp.task('move-test-config', ['clean'], function () {
         .pipe(gulp.dest('debug/test'));
 });
 
+gulp.task('test',
+    ["build-server", "build-staticResource", "build-client", "build-test", "move-test-config"],
+    function () {
+
+    });
+
 gulp.task('default',
-    ["build-server", "build-staticResource", "webpack", "build-test", "move-test-config"],
+    ["build-server", "build-staticResource", "webpack", "build-test", "move-test-config","watch"],
     function () {
         console.info("\x1b[32m%s\x1b[0m", ">>>>>>>>>>Done>>>>>>>>");
-});
+    });
 
-gulp.watch("src/**/*.{ts,tsx,less,html}", ['default'], function () {
-    console.log("detect code change,start building...");
+gulp.task("watch", function () {
+    watch("src/**/*.{ts,tsx,less,html}", ['default'], function () {
+        console.log("detect code change,start building...");
+    });
 });

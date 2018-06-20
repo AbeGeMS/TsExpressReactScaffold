@@ -5,6 +5,7 @@ import { SamplePage } from "./samplePage";
 interface IMainPageState {
     test: any
 }
+
 export class MainPage extends React.Component<any, IMainPageState> {
     public componentWillMount() {
     }
