@@ -1,6 +1,6 @@
-import { SampleService } from '../Service/sampleService'
+import { SampleService } from '../../Service/sampleService'
 
-describe(' jasmine test suite', () => {
+describe('jasmine test suite', () => {
     it("1st test: a equl to true", () => {
         let a = true;
         expect(a).toBe(true);

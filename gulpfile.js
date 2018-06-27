@@ -5,6 +5,7 @@ var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var webpack = require("webpack");
 var webpack_config = require("./webpack.config.js");
+var webpack_test_config = require("./webpack.config.test.js");
 var webpack_stream = require("webpack-stream");
 
 gulp.task("clean", function () {
@@ -37,10 +38,8 @@ gulp.task("webpack", ["clean"], function () {
 });
 
 gulp.task('build-test', ['clean'], function () {
-    console.log('run build test');
-    return gulp.src("src/test/**/*.ts")
-        .pipe(ts.createProject("tsconfig.json")())
-        .js.pipe(gulp.dest("debug/test"));
+    return webpack_stream(webpack_test_config, webpack)
+    .pipe(gulp.dest("debug/test"));
 });
 
 gulp.task('move-test-config', ['clean'], function () {
@@ -49,20 +48,14 @@ gulp.task('move-test-config', ['clean'], function () {
         .pipe(gulp.dest('debug/test'));
 });
 
-gulp.task('test',
-    ["build-server", "build-staticResource", "build-client", "build-test", "move-test-config"],
-    function () {
-
-    });
-
 gulp.task('default',
-    ["build-server", "build-staticResource", "webpack", "build-test", "move-test-config","watch"],
+    ["build-server", "build-staticResource", "webpack", "build-test", "move-test-config"],
     function () {
         console.info("\x1b[32m%s\x1b[0m", ">>>>>>>>>>Done>>>>>>>>");
     });
 
 gulp.task("watch", function () {
-    watch("src/**/*.{ts,tsx,less,html}", ['default'], function () {
+    gulp.watch("src/**/*.{ts,tsx,less,html}", ['default'], function () {
         console.log("detect code change,start building...");
     });
 });
