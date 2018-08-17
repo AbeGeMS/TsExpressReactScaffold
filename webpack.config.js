@@ -1,6 +1,8 @@
+var glob= require("glob");
+
 var debugConfig = {
   watch: false,
-  mode:"development",
+  mode: "development",
   entry: "./src/public/script/view/mainPage.tsx",
   output: {
     path: __dirname + '/debug/public/script/',
@@ -11,9 +13,15 @@ var debugConfig = {
     extensions: [".ts", ".tsx"]
   },
   module: {
-    rules: [
-      { test: /\.tsx?$/, loader: "awesome-typescript-loader?{configFileName: \"./tsconfig.json\"}" },
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
+    rules: [{
+        test: /\.tsx?$/,
+        loader: "awesome-typescript-loader?{configFileName: \"./tsconfig.json\"}"
+      },
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader"
+      }
     ]
   },
   externals: {
@@ -24,8 +32,8 @@ var debugConfig = {
 
 var testConfig = {
   watch: false,
-  mode:"development",
-  entry: "./src/test/client/sampleModel.test.ts",
+  mode: "development",
+  entry:glob.sync("./src/test/client/*.test.ts"),
   output: {
     path: __dirname + '/debug/test/client/',
     filename: '[name].test.js',
@@ -35,9 +43,15 @@ var testConfig = {
     extensions: [".ts", ".tsx"]
   },
   module: {
-    rules: [
-      { test: /\.tsx?$/, loader: "awesome-typescript-loader?{configFileName: \"./tsconfig.json\"}" },
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
+    rules: [{
+        test: /\.tsx?$/,
+        loader: "awesome-typescript-loader?{configFileName: \"./tsconfig.json\"}"
+      },
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader"
+      }
     ]
   },
   externals: {
@@ -45,5 +59,4 @@ var testConfig = {
     "react-dom": "ReactDOM",
   }
 }
-
 module.exports = [debugConfig, testConfig];

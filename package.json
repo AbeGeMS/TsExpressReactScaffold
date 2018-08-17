@@ -26,6 +26,7 @@
     "@types/react": "^15.0.25",
     "@types/react-dom": "^15.5.0",
     "awesome-typescript-loader": "^5.0.0",
+    "glob": "^7.1.2",
     "gulp": "^3.9.1",
     "gulp-cli": "^2.0.1",
     "gulp-concat": "^2.6.1",

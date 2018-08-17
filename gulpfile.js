@@ -14,7 +14,7 @@ gulp.task("clean", function () {
 
 gulp.task("build-server", ["clean"], function () {
     console.log("build typscript");
-    return gulp.src(["src/**/*.{ts,tsx}", "!src/public", "!src/public/**"]) // Build all ts/tsx file under src folder and exclude public
+    return gulp.src(["src/**/*.{ts,tsx}", "!src/public", "!src/public/**","!src/test/client/**"]) // Build all ts/tsx file under src folder then exclude public and client test
         .pipe(ts.createProject("tsconfig.json")())
         .pipe(gulp.dest("debug"));
 });
