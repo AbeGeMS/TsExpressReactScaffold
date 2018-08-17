@@ -5,7 +5,6 @@ var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var webpack = require("webpack");
 var webpack_config = require("./webpack.config.js");
-var webpack_stream = require("webpack-stream");
 var exec = require("child_process").exec;
 
 gulp.task("clean", function () {
