@@ -5,8 +5,8 @@ var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var webpack = require("webpack");
 var webpack_config = require("./webpack.config.js");
-var webpack_test_config = require("./webpack.config.test.js");
 var webpack_stream = require("webpack-stream");
+var exec = require("child_process").exec;
 
 gulp.task("clean", function () {
     console.log("Clean all files in debug folder");
@@ -33,13 +33,10 @@ gulp.task("build-client", ["clean"], function () {
 });
 
 gulp.task("webpack", ["clean"], function () {
-    return webpack_stream(webpack_config, webpack)
-        .pipe(gulp.dest("debug/public/script"));
-});
-
-gulp.task('build-test', ['clean'], function () {
-    return webpack_stream(webpack_test_config, webpack)
-    .pipe(gulp.dest("debug/test"));
+    exec("webpack --color --config webpack.config.js",function(err,stdout,stderr){
+        console.log(stdout);
+        console.log(stderr);
+    });
 });
 
 gulp.task('move-test-config', ['clean'], function () {
@@ -49,7 +46,7 @@ gulp.task('move-test-config', ['clean'], function () {
 });
 
 gulp.task('default',
-    ["build-server", "build-staticResource", "webpack", "build-test", "move-test-config"],
+    ["build-server", "build-staticResource", "webpack", "move-test-config"],
     function () {
         console.info("\x1b[32m%s\x1b[0m", ">>>>>>>>>>Done>>>>>>>>");
     });

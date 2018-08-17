@@ -1,6 +1,5 @@
 import * as React from "react"
 import { SampleModel } from "../model/sampleModel";
-import { message } from "gulp-typescript/release/utils";
 
 interface SamplePageState {
     content: string
