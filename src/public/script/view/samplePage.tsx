@@ -14,7 +14,7 @@ export class SamplePage extends React.Component<any, SamplePageState>{
     }
     private model: SampleModel;
     public render() {
-        return <div>{this.state.content}</div>;
+        return <div className="basis-color">{this.state.content}</div>;
     }
     private UpdateContent() {
         let model = new SampleModel();
