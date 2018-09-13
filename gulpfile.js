@@ -47,7 +47,7 @@ gulp.task("build-less", ["clean"], function () {
 
 gulp.task('move-test-config', ['clean'], function () {
     console.log('run move jasmine config');
-    return gulp.src('src/test/**/jasmine.json')
+    return gulp.src('src/test/**/*.{json,js}')
         .pipe(gulp.dest('debug/test'));
 });
 

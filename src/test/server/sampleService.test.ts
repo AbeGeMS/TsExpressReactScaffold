@@ -6,4 +6,7 @@ describe('jasmine test suite', () => {
         let actualResult = sayHelloService.SayHi("tester");
         expect(actualResult).toBe('Hello, my name is tester');
     });
+    it("test failure",()=>{
+        expect(false).toBe(true,"Here should be false");
+    })
 });
