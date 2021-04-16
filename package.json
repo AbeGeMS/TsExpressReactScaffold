@@ -4,6 +4,9 @@
   "description": "a scaffolded for a website using typeScript as language; expressJs as server side framework;React as client side framework; Jasmine as UT engine; nodemon is debug tool; VsCode as IDE.",
   "main": "",
   "scripts": {
+    "init":"npm install -g yarn",
+    "nodemon": "nodemon build/app.js",
+    "build": "tsc --project tsconfig.json"
   },
   "author": "Abe Ge",
   "license": "MIT",
