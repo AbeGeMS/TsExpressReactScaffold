@@ -1,13 +1,21 @@
 # TsExpressReactScaffold
 An scaffold for Express + React using typescript
+
 # Provisioning
 * Install [Nodejs](https://nodejs.org/en/)
 * Install [yarn](https://yarnpkg.com/en/)
+    ```powershell
+    npm install -g yarn
+    # cd ~/path/to/project
+    yarn set version berry
+    ```
 # Initial Project
 * Develop environment: 
     > \> yarn install
-* Production enviroment:
+* Production environment:
     > \> yarn install --prod
+* Add dependency:
+    > \> yarn add --dev
 # Command
 * Build 
     > \> npm run build

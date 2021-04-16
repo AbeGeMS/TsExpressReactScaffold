@@ -1,5 +1,5 @@
 #build
-debug
+build
 dist
 
 #package
@@ -9,3 +9,5 @@ package-lock.json
 #devenv
 .vs
 *.log
+
+#yarn
