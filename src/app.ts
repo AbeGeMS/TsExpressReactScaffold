@@ -1,4 +1,3 @@
-import { Application, Router } from "express";
 import { Server } from "http";
 import express from "express";
 import * as path from "path";
@@ -6,7 +5,7 @@ import sampleRouter from "./router/sampleRouter";
 
 export class Demo {
     public static start() {
-      let app: Application = express();
+        let app = express();
       app.use(express.static(path.join(__dirname, "public")));
       app.use("/", sampleRouter);
 
